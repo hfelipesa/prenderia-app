@@ -1,10 +1,12 @@
 import "./Formulario.css";
-import Swal from 'sweetalert2'
-import { useState } from "react";
+import Swal from "sweetalert2";
 import { Link, Navigate } from "react-router-dom";
 import { FaUser } from "react-icons/fa6";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { GiTakeMyMoney } from "react-icons/gi";
+import { useState } from "react";
+import { auth } from "../../firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 
 function Formulario() {
@@ -13,32 +15,28 @@ function Formulario() {
   const [loggedIn, setLoggedIN] = useState(false);
 
   const handleLogin = () => {
-    if (user === "Felipe" && password === "felipe") {
-      alert("ingreso con exito");
-      setLoggedIN(true);
-    } else {
-      /* alert("credenciales incorrectas"); */
-      Swal.fire({
-        title: 'Crendenciales incorrecta',
-        text: 'Por favor verifique intente de nuevo',
-        icon: 'error',
-        iconColor:"grey",
-        confirmButtonText: 'Cerrar',
-        timer:5000,
-        background:"black"
+    signInWithEmailAndPassword(auth, user, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        alert("¡Ingreso exitoso!");
+        setLoggedIN(true);
       })
-    }
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert("credenciales incorrectas");
+      });
   };
   if (loggedIn) {
-    return <Navigate to="/Home" />;
+    return <Navigate to={"/home"} />;
   }
+
   return (
     <section className="containerForm">
       <div className="containerHeader">
-        <GiTakeMyMoney className="gif"/>
+        <GiTakeMyMoney className="gif" />
         <h1>LOGIN ADMIN</h1>
       </div>
-
       <form className="form">
         <div className="inputs">
           <FaUser className="git" />
@@ -51,7 +49,7 @@ function Formulario() {
           />
         </div>
         <div className="inputs">
-          <RiLockPasswordFill className="git"/>
+          <RiLockPasswordFill className="git" />
           <input
             placeholder="Contraseña"
             type="password"

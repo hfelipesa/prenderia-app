@@ -8,17 +8,26 @@
     color: white;
 }
 .containerMenu {
+    width: 80%;
     display: flex;
     flex-direction: column;
     gap: 13px; 
+    justify-content: center;
+    align-items: center;
 }
 .containerMenu button{
-    padding: 10px 90px;
+    /* padding: 10px 80px; */
+    width: 100%;
+    height: 50px;
     border-radius: 30px;
     border-color: #b3965a;
-    background-color: transparent;
+    background-color:transparent;
     cursor: pointer;
     border-bottom: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 .containerMenu button:hover{
     background-color:#b3955a2a;
@@ -28,6 +37,11 @@
     color:#b3965a;
     font-size: 15px;
     font-weight: bold;
+    display: flex;
+    gap: 10px;
+}
+.gifs{
+   height: 18px;
 }
 .containerMenu a:hover{
     color:white;
@@ -41,7 +55,11 @@
     cursor: pointer;
     color:black;
     font-size: 15px;
-   font-weight: bold;
+    font-weight: bold;
+}
+.btnClosed a{
+    text-decoration: none;
+    color: white;
 }
 .logoHome{
     display: flex;
@@ -49,7 +67,19 @@
     height: 200px;
     justify-content: center;
     margin-top: 15px;
+    animation: rotar 5s linear infinite;
 }
+.logoHome:hover{
+    cursor: pointer;
+}
+@keyframes rotar{
+    from{
+        transform: rotateY(180deg);
+    }to{
+        transform: rotateY(360deg);
+    }
+}
+
 .logoHome img{
     width: 200px;
     height: 100%;

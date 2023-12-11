@@ -10,7 +10,7 @@ function Home() {
         <Sidebar />
       </div>
       <div className="main-content">
-        <Outlet />
+      <Outlet />
       </div>
     </div>
   );

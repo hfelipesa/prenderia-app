@@ -3,8 +3,7 @@ import Contrato from "../pages/Contrato";
 import Home from "../pages/Home";
 import Inventario from "../pages/Inventario";
 import Login from "../pages/Login";
-import Reporte from "../pages/Reporte";
-
+import React from "react";
 
 let rutasNav = [
   {
@@ -27,12 +26,9 @@ let rutasNav = [
         path: "inventario",
         element: <Inventario />,
       },
-      {
-        path: "reporte",
-        element: <Reporte />,
-      },
     ],
   },
 ];
 
-export default rutasNav;
+export default rutasNav; 
+ 

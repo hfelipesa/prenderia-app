@@ -1,0 +1,22 @@
+.container{
+    width: 100%;
+    height: auto;
+}
+.containerConsulta{
+    background-color: aliceblue;
+}
+.cardCliente{
+   background-color: aqua;
+}
+.cardCliente{
+   margin-top: 20px;
+}
+.cardProducto{
+    background-color: antiquewhite;
+    display: flex;
+    gap: 5px;
+}
+.cardResultadoProducto{
+    border: solid black 1px;
+   
+}
